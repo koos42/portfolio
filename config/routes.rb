@@ -1,4 +1,6 @@
 Portfolio::Application.routes.draw do
+  resources :blog_entries
+
   resources :pieces
 
   resources :pictures
