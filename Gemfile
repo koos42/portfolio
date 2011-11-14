@@ -7,7 +7,7 @@ gem 'rails', '3.1.1'
 
 gem 'sqlite3'
 gem 'devise'
-gem 'paperclip'
+gem "paperclip", "~> 2.4"
 
 
 # Gems used only for assets and not required
