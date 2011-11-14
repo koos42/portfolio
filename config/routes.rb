@@ -1,4 +1,6 @@
 Portfolio::Application.routes.draw do
+  resources :pieces
+
   resources :pictures
 
   # The priority is based upon order of creation:
