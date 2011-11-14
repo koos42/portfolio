@@ -20,6 +20,8 @@
   <%= @blog_entry.body %>
 </p>
 
+<%= render :partial => 'pictures/picture', :collection => @piece.pictures %>
+<%= render :partial => 'links/link', :collection => @piece.links %>
 
 <%= link_to 'Edit', edit_blog_entry_path(@blog_entry) %> |
 <%= link_to 'Back', blog_entries_path %>

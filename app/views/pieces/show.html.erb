@@ -10,12 +10,8 @@
   <%= @piece.description %>
 </p>
 
-<% @piece.pictures.each do |pic| %>
-  <p>
-    <%= image_tag pic.image.url %>
-  </p>
-<% end %>
-
+<%= render :partial => 'pictures/picture', :collection => @piece.pictures %>
+<%= render :partial => 'links/link', :collection => @piece.links %>
 
 <%= link_to 'Edit', edit_piece_path(@piece) %> |
 <%= link_to 'Back', pieces_path %>
