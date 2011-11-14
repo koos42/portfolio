@@ -5,7 +5,7 @@ class AddColumnLinkableIdAndColumnLinkableTypeToLinks < ActiveRecord::Migration
   end
 
   def self.down
-    add_column :links, :linkable_id
-    add_column :links, :linkable_type
+    remove_column :links, :linkable_id
+    remove_column :links, :linkable_type
   end
 end
