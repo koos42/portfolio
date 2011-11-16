@@ -1,0 +1,71 @@
+<!-- these fields are meant to be mangled by javascript 
+     to allow for multiple inputs for pictures -->
+<div id="picture_field_groups">
+  <div class="picture_field_group">
+    <div class="field">
+      <%= label_tag :name %><br />
+      <%= text_field_tag :name  %>
+    </div>
+    <div class="field">
+      <%= label_tag :description %><br />
+      <%= text_area_tag :description %>
+    </div>
+    <div class="field">
+      <%= label_tag :slug %><br />
+      <%= text_field_tag :slug %>
+    </div>
+    <div class="field">
+      <%= label_tag :imageable_id %><br />
+      <%= text_field_tag :imageable_id %>
+    </div>
+    <div class="field">
+      <%= label_tag :imageable_type %><br />
+      <%= text_field_tag :imageable_type %>
+    </div>
+    <div class="field">
+      <%= file_field_tag :image %>
+    </div>
+  </div>
+</div>
+
+<a href="#add_another" id="picture_add_another">Add Another</a>
+
+<br/>
+
+<script type="text/javascript">
+  $(function(){
+    if (picture_field_groups === undefined) { picture_field_groups = {}; }
+    picture_field_groups.count = 0;
+
+    //label the form fields as a group
+    picture_field_groups.label_group = function(new_group){
+      new_group.find('input').add('textarea').each(function(){
+        var name = $(this).attr('name');
+        $(this).attr('name', 'picture[' + picture_field_groups.count + '][' + name + ']');
+      });
+
+      //do the same for the labels
+      new_group.find('label').each(function(){
+        var f0r = $(this).attr('for');
+        $(this).attr('for', 'picture[' + picture_field_groups.count + '][' + f0r + ']');
+      });
+      picture_field_groups.count++;
+    };
+
+    picture_field_groups.add_group = function(){
+      var new_group = picture_field_groups.original_group.clone();
+      $('#picture_field_groups').append(new_group);
+      picture_field_groups.label_group(new_group); 
+    };
+
+    //manage that first group
+    var first_group = $('#picture_field_groups .picture_field_group').first();
+    picture_field_groups.original_group = first_group.clone();
+    picture_field_groups.label_group(first_group);
+
+    //make the button do the desired action
+    $('#picture_add_another').click(function(){
+      picture_field_groups.add_group(); 
+    });
+  });
+</script>
