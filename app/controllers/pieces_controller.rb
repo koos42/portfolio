@@ -42,6 +42,10 @@ class PiecesController < ApplicationController
   def create
     
     @piece = Piece.new(params[:piece])
+    @piece.pictures = params[:pictures].collect do |n,picture_params|
+      picture = Picture.new(picture_params)
+      picture if picture.save
+    end.compact
 
     respond_to do |format|
       if @piece.save
