@@ -30,28 +30,31 @@
     picture_field_groups.count = 0;
 
     //label the form fields as a group
-    picture_field_groups.label_group = function(new_group){
-      new_group.find('input').add('textarea').each(function(){
+    picture_field_groups.label_group = function(group){
+      group.find('input').add(group.find('textarea')).each(function(){
         var name = $(this).attr('name');
-        $(this).attr('name', 'pictures[' + picture_field_groups.count + ']' + name );
+        $(this).attr('name', 'pictures[' + picture_field_groups.count + '][' + name + ']' );
       });
 
-      //do the same for the labels
-      new_group.find('label').each(function(){
-        var f0r = $(this).attr('for');
-        $(this).attr('for', 'pictures[' + picture_field_groups.count + ']' + f0r);
-      });
+      /*
+        //do the same for the labels
+        group.find('label').each(function(){
+          var f0r = $(this).attr('for');
+          $(this).attr('for', 'pictures[' + picture_field_groups.count + '][' + f0r + ']');
+        });
+      */
+
       picture_field_groups.count++;
     };
 
     picture_field_groups.add_group = function(){
       var new_group = picture_field_groups.original_group.clone();
-      $('#picture_field_groups').append(new_group);
       picture_field_groups.label_group(new_group); 
+      $('#picture_field_groups').append(new_group);
     };
 
     //manage that first group
-    var first_group = $('#picture_field_groups .picture_field_group').first();
+    var first_group = $('#picture_field_groups div.picture_field_group').first();
     picture_field_groups.original_group = first_group.clone();
     picture_field_groups.label_group(first_group);
 
