@@ -20,7 +20,11 @@
     <%= f.text_area :description %>
   </div>
   <div>
-    <%= render :partial => 'pictures/multi_form' %>
+    <% if @action == :edit %>
+      <%= render :partial => 'pictures/picture_form_edit', :collection => @piece.pictures %>
+    <% else %>
+      <%= render :partial => 'pictures/multi_form' %>
+    <% end %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -2,21 +2,7 @@
      to allow for multiple inputs for pictures -->
 <div id="picture_field_groups">
   <div class="picture_field_group">
-    <div class="field">
-      <%= label_tag :name %><br />
-      <%= text_field_tag :name  %>
-    </div>
-    <div class="field">
-      <%= label_tag :description %><br />
-      <%= text_area_tag :description %>
-    </div>
-    <div class="field">
-      <%= label_tag :slug %><br />
-      <%= text_field_tag :slug %>
-    </div>
-    <div class="field">
-      <%= file_field_tag :image %>
-    </div>
+    <%= render :partial => 'pictures/picture_form_new' %>
   </div>
 </div>
 

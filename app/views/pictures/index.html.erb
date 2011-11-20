@@ -20,6 +20,8 @@
     <td><%= link_to 'Destroy', picture, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
+
+<%= render :partial => 'picture_mini', :collection => @pictures %>
 </table>
 
 <br />

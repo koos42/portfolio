@@ -1,0 +1,24 @@
+<%
+  picture = picture_form_edit || Picture.new
+  picture_counter = picture_form_edit_counter
+%>
+<%= hidden_field :id, picture.id, :value => picture.id, :name => "pictures[#{picture_counter}][id]"  %>
+<%= image_tag picture.image.url(:thumbnail) %>
+<div class="field">
+  <%= label_tag :name %><br />
+  <%= text_field_tag :name, picture.name, :name => "pictures[#{picture_counter}][name]" %>
+</div>
+<div class="field">
+  <%= label_tag :description %><br />
+  <%= text_area_tag :description, picture.description, :name => "pictures[#{picture_counter}][description]"  %>
+</div>
+<div class="field">
+  <%= label_tag :slug %><br />
+  <%= text_field_tag :slug, picture.slug, :name => "pictures[#{picture_counter}][slug]"   %>
+</div>
+<div class="field">
+  <%= file_field_tag :image, :name => "pictures[#{picture_counter}][image]"  %>
+</div>
+<div class="field">
+  <%= link_to 'Destroy', picture, confirm: 'Are you sure?', method: :delete %>
+</div>

@@ -20,6 +20,15 @@
   <%= image_tag @picture.image.url %>
 </p>
 
+<p>
+  <b>Medium:</b>
+  <%= image_tag @picture.image.url(:medium) %>
+</p>
+
+<p>
+  <b>Thumbnail:</b>
+  <%= image_tag @picture.image.url(:thumbnail) %>
+</p>
 
 <%= link_to 'Edit', edit_picture_path(@picture) %> |
 <%= link_to 'Back', pictures_path %>

@@ -1,0 +1,8 @@
+<% picture = picture_mini %>
+<div>
+  <h3><%= picture.name %></h3>
+  <%= image_tag picture.image.url(:thumbnail) %>
+  <%= link_to 'show', picture %> |
+  <%= link_to 'edit', edit_picture_path(picture) %> |
+  <%= link_to 'destroy', picture, :method => 'delete', :confirm => "You sure 'bout that?" %>
+</div>

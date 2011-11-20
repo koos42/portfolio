@@ -35,6 +35,7 @@ class PiecesController < ApplicationController
   # GET /pieces/1/edit
   def edit
     @piece = Piece.find(params[:id])
+    @action = :edit
   end
 
   # POST /pieces
@@ -62,6 +63,10 @@ class PiecesController < ApplicationController
   # PUT /pieces/1.json
   def update
     @piece = Piece.find(params[:id])
+    params[:pictures].collect do |n,picture_params|
+      picture = Picture.find(picture_params[:id])
+      picture if picture.update_attributes(picture_params)
+    end
 
     respond_to do |format|
       if @piece.update_attributes(params[:piece])
