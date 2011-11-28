@@ -4,8 +4,7 @@ describe "pictures/new.html.erb" do
   before(:each) do
     assign(:picture, stub_model(Picture,
       :name => "MyString",
-      :description => "MyText",
-      :slug => "MyString"
+      :description => "MyText"
     ).as_new_record)
   end
 
@@ -16,7 +15,6 @@ describe "pictures/new.html.erb" do
     assert_select "form", :action => pictures_path, :method => "post" do
       assert_select "input#picture_name", :name => "picture[name]"
       assert_select "textarea#picture_description", :name => "picture[description]"
-      assert_select "input#picture_slug", :name => "picture[slug]"
     end
   end
 end

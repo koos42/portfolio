@@ -13,10 +13,6 @@
   <%= text_area_tag :description, picture.description, :name => "pictures[#{picture_counter}][description]"  %>
 </div>
 <div class="field">
-  <%= label_tag :slug %><br />
-  <%= text_field_tag :slug, picture.slug, :name => "pictures[#{picture_counter}][slug]"   %>
-</div>
-<div class="field">
   <%= file_field_tag :image, :name => "pictures[#{picture_counter}][image]"  %>
 </div>
 <div class="field">

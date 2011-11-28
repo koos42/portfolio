@@ -4,8 +4,7 @@ describe "pictures/show.html.erb" do
   before(:each) do
     @picture = assign(:picture, stub_model(Picture,
       :name => "Name",
-      :description => "MyText",
-      :slug => "Slug"
+      :description => "MyText"
     ))
   end
 
@@ -15,7 +14,5 @@ describe "pictures/show.html.erb" do
     rendered.should match(/Name/)
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     rendered.should match(/MyText/)
-    # Run the generator again with the --webrat flag if you want to use webrat matchers
-    rendered.should match(/Slug/)
   end
 end
