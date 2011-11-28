@@ -43,10 +43,7 @@ class PiecesController < ApplicationController
   def create
     
     @piece = Piece.new(params[:piece])
-    @piece.pictures = params[:pictures].collect do |n,picture_params|
-      picture = Picture.new(picture_params)
-      picture if picture.save
-    end.compact
+    create_new_pictures @piece
 
     respond_to do |format|
       if @piece.save
@@ -63,10 +60,8 @@ class PiecesController < ApplicationController
   # PUT /pieces/1.json
   def update
     @piece = Piece.find(params[:id])
-    params[:pictures].collect do |n,picture_params|
-      picture = Picture.find(picture_params[:id])
-      picture if picture.update_attributes(picture_params)
-    end
+    create_new_pictures @piece
+    update_pictures
 
     respond_to do |format|
       if @piece.update_attributes(params[:piece])

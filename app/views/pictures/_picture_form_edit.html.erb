@@ -20,5 +20,5 @@
   <%= file_field_tag :image, :name => "pictures[#{picture_counter}][image]"  %>
 </div>
 <div class="field">
-  <%= link_to 'Destroy', picture, confirm: 'Are you sure?', method: :delete %>
+  <%= link_to 'Destroy', picture_url(picture), confirm: 'Are you sure?', method: :delete %>
 </div>

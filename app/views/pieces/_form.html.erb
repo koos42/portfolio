@@ -22,9 +22,8 @@
   <div>
     <% if @action == :edit %>
       <%= render :partial => 'pictures/picture_form_edit', :collection => @piece.pictures %>
-    <% else %>
-      <%= render :partial => 'pictures/multi_form' %>
     <% end %>
+    <%= render :partial => 'pictures/multi_form' %>
   </div>
   <div class="actions">
     <%= f.submit %>
