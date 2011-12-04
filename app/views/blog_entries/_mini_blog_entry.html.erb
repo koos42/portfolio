@@ -1,0 +1,5 @@
+<% return if !mini_blog_entry %>
+<div>
+  <h3><%= mini_blog_entry.title %></h3>
+  <%= image_tag mini_blog_entry.pictures.first.image.url(:thumbnail) if miniblog_entry.pictures.first %>
+</div>

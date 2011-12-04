@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
   def create_new_pictures(imageable)
     imageable.pictures ||= []
     imageable.pictures += params[:new_pictures].collect do |n,picture_params|
+      next if picture_params[:image].blank?
       picture = Picture.new(picture_params)
       picture if picture.save
     end.compact

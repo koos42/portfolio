@@ -1,4 +1,6 @@
 Portfolio::Application.routes.draw do
+  get "pages/frontpage"
+
   resources :links
 
   resources :blog_entries

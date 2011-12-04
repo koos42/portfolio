@@ -1,4 +1,4 @@
-<%= form_for(@blog_entry) do |f| %>
+<%= form_for(@blog_entry, :html => { :multipart => true }) do |f| %>
   <% if @blog_entry.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@blog_entry.errors.count, "error") %> prohibited this blog_entry from being saved:</h2>
@@ -26,6 +26,10 @@
   <div class="field">
     <%= f.label :body %><br />
     <%= f.text_area :body %>
+  </div>
+  <div>
+    <%= render :partial => 'pictures/picture_form_edit', :collection => @blog_entry.pictures %>
+    <%= render :partial => 'pictures/multi_form' %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -1,0 +1,5 @@
+<% return if !piece %>
+<div>
+  <h3><%= piece.name %></h3>
+  <%= image_tag piece.pictures.first.image.url(:thumbnail) if piece.pictures.first %>
+</div>

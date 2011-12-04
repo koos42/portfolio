@@ -41,6 +41,7 @@ class BlogEntriesController < ApplicationController
   # POST /blog_entries.json
   def create
     @blog_entry = BlogEntry.new(params[:blog_entry])
+    create_new_pictures @blog_entry
 
     respond_to do |format|
       if @blog_entry.save
@@ -57,6 +58,8 @@ class BlogEntriesController < ApplicationController
   # PUT /blog_entries/1.json
   def update
     @blog_entry = BlogEntry.find(params[:id])
+    create_new_pictures @blog_entry
+    update_pictures
 
     respond_to do |format|
       if @blog_entry.update_attributes(params[:blog_entry])
