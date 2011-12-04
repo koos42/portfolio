@@ -1,4 +1,5 @@
 Portfolio::Application.routes.draw do
+  root :to => "pages#frontpage"
   get "pages/frontpage"
 
   resources :links
